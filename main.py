@@ -1,5 +1,6 @@
+import random
+
 import art
-print(art.logo)
 ############### Blackjack Project #####################
 
 #Difficulty Normal 😎: Use all Hints below to complete the project.
@@ -20,6 +21,50 @@ print(art.logo)
 ## The computer is the dealer.
 
 ##################### Hints #####################
+
+
+player_score = 0
+dealer_score = 0
+player_hand = []
+dealer_hand = []
+dealer_stand = 17
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
+
+def deal_card(hand: list):
+    global cards
+    return hand.append(random.choice(cards))
+
+
+def get_score(cards):
+    
+    return
+
+
+def check_bust(score):
+    return
+
+
+def get_hard_soft_score():
+    return
+
+
+def print_hand_info(hand, name):
+    print(f'{name}\'s hand \n{hand}\nscore:{get_score(hand)}')
+
+
+
+def start_game():
+    global player_hand, dealer_hand, player_score, dealer_score
+    print(art.logo)
+    deal_card(player_hand)
+
+    dealer_hand.append('*')
+
+
+    return
+
+
 
 #Hint 1: Go to this website and try out the Blackjack game: 
 #   https://games.washingtonpost.com/games/blackjack/
