@@ -36,9 +36,8 @@ def deal_card(hand: list):
     return hand.append(random.choice(cards))
 
 
-def get_score(cards):
-    
-    return
+def get_score(hand):
+    return sum(hand)
 
 
 def check_bust(score):
@@ -58,12 +57,16 @@ def start_game():
     global player_hand, dealer_hand, player_score, dealer_score
     print(art.logo)
     deal_card(player_hand)
-
+    print_hand_info(player_hand, 'player')
+    deal_card(player_hand)
+    print_hand_info(player_hand, 'player')
     dealer_hand.append('*')
-
+    deal_card(dealer_hand)
+    print_hand_info(dealer_hand, 'dealer')
 
     return
 
+start_game()
 
 
 #Hint 1: Go to this website and try out the Blackjack game: 
