@@ -49,24 +49,26 @@ def get_hard_soft_score():
 
 
 def print_hand_info(hand, name):
-    print(f'{name}\'s hand \n{hand}\nscore:{get_score(hand)}')
-
+    cleaned_hand = [x for x in hand if x != '*']
+    print(f'{name}\'s hand \n{hand}\nscore:{get_score(cleaned_hand)}')
+    return
 
 
 def start_game():
     global player_hand, dealer_hand, player_score, dealer_score
     print(art.logo)
     deal_card(player_hand)
-    print_hand_info(player_hand, 'player')
     deal_card(player_hand)
     print_hand_info(player_hand, 'player')
     dealer_hand.append('*')
     deal_card(dealer_hand)
     print_hand_info(dealer_hand, 'dealer')
-
     return
 
+
 start_game()
+
+
 
 
 #Hint 1: Go to this website and try out the Blackjack game: 
@@ -108,4 +110,3 @@ start_game()
 #Hint 13: Create a function called compare() and pass in the user_score and computer_score. If the computer and user both have the same score, then it's a draw. If the computer has a blackjack (0), then the user loses. If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses. If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins.
 
 #Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.py.
-
