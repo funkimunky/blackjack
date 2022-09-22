@@ -56,7 +56,7 @@ def check_bust(hand):
 
 
 def winning_hand(hand):
-
+    return
 
 
 def get_hard_score(hand):
