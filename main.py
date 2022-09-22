@@ -28,8 +28,8 @@ dealer_score = 0
 player_hand = []
 dealer_hand = []
 dealer_stand = 17
-cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-# cards = [11]
+# cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+cards = [11, 10]
 
 
 def deal_card(hand: list):
@@ -48,14 +48,47 @@ def get_score(hand):
     return score
 
 
+def check_hand(hand):
+    params = {'isBust': False, 'isBlackjack': False}
+    if check_bust(hand):
+        params['isBust'] = True
+        return params
+
+    if check_blackjack(hand):
+        params['isBlackjack'] = True
+        return params
+
+    return params
 
 
 def check_bust(hand):
+    soft_score = 0
+    hard_score = 0
 
-    return
+    if 11 in hand:
+        soft_score = get_soft_score(hand)
+
+    hard_score = get_hard_score(hand)
+
+    if soft_score > 21 or hard_score > 21:
+        return True
+
+    return False
 
 
-def winning_hand(hand):
+def check_blackjack(hand):
+    soft_score = 0
+    hard_score = 0
+
+    if 11 in hand:
+        soft_score = get_soft_score(hand)
+
+    hard_score = get_hard_score(hand)
+
+    if soft_score == 21 or hard_score == 21:
+        return True
+
+    return False
     return
 
 
@@ -88,10 +121,19 @@ def start_game():
     deal_card(dealer_hand)
     print_hand_info(dealer_hand, 'dealer')
     print_hand_info(player_hand, 'player')
+    myhand = check_hand(player_hand)
+
+    if myhand['isBust']:
+        print(f'You lose')
+
+    if myhand['isBlackjack']:
+        print(f'You win')
+
     return
 
-
-start_game()
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    start_game()
 
 
 
