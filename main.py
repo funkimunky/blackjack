@@ -29,6 +29,7 @@ player_hand = []
 dealer_hand = []
 dealer_stand = 17
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+# cards = [11]
 
 
 def deal_card(hand: list):
@@ -37,19 +38,43 @@ def deal_card(hand: list):
 
 
 def get_score(hand):
+    score = {'softscore':'','hardscore':''}
+    if(11 in hand):
+        score['softscore'] = get_soft_score(hand)
+        score['hardscore'] = get_hard_score(hand)
+    else:
+        score['hardscore'] = sum(hand)
+
+    return score
+
+
+
+
+def check_bust(hand):
+
+    return
+
+
+def winning_hand(hand):
+
+
+
+def get_hard_score(hand):
     return sum(hand)
 
 
-def check_bust(score):
-    return
+def get_soft_score(hand):
+    soft_hand = [x if x != 11 else 1 for x in hand]
+    return sum(soft_hand)
 
 
-def get_hard_soft_score():
-    return
+def clean_hand(hand):
+    cleaned_hand = [x for x in hand if x != '*']
+    return cleaned_hand
 
 
 def print_hand_info(hand, name):
-    cleaned_hand = [x for x in hand if x != '*']
+    cleaned_hand = clean_hand(hand)
     print(f'{name}\'s hand \n{hand}\nscore:{get_score(cleaned_hand)}')
     return
 
@@ -59,10 +84,10 @@ def start_game():
     print(art.logo)
     deal_card(player_hand)
     deal_card(player_hand)
-    print_hand_info(player_hand, 'player')
     dealer_hand.append('*')
     deal_card(dealer_hand)
     print_hand_info(dealer_hand, 'dealer')
+    print_hand_info(player_hand, 'player')
     return
 
 
