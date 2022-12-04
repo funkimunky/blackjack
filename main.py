@@ -63,7 +63,6 @@ def check_hand(hand):
 
 def check_bust(hand):
     soft_score = 0
-    hard_score = 0
 
     if 11 in hand:
         soft_score = get_soft_score(hand)
@@ -78,7 +77,6 @@ def check_bust(hand):
 
 def check_blackjack(hand):
     soft_score = 0
-    hard_score = 0
 
     if 11 in hand:
         soft_score = get_soft_score(hand)
@@ -121,19 +119,30 @@ def start_game():
     deal_card(dealer_hand)
     print_hand_info(dealer_hand, 'dealer')
     print_hand_info(player_hand, 'player')
-    myhand = check_hand(player_hand)
 
-    if myhand['isBust']:
-        print(f'You lose')
-
-    if myhand['isBlackjack']:
-        print(f'You win')
 
     return
+
+def play_loop(player):
+    global player_hand, dealer_hand, player_score, dealer_score
+    twist = 'n'
+    while twist == 'n':
+        my_hand = check_hand(player_hand)
+
+        if my_hand['isBust']:
+            print(f'You lose')
+
+        if my_hand['isBlackjack']:
+            print(f'You win')
+
+        twist = input("twist? y/n").lower()
+
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     start_game()
+    play_loop('player')
 
 
 
