@@ -125,8 +125,8 @@ def start_game():
 
 def play_loop(player):
     global player_hand, dealer_hand, player_score, dealer_score
-    twist = 'n'
-    while twist == 'n':
+    twist = 'y'
+    while twist == 'y':
         my_hand = check_hand(player_hand)
 
         if my_hand['isBust']:
