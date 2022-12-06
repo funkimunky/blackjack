@@ -135,7 +135,7 @@ def play_loop(player):
         if my_hand['isBlackjack']:
             print(f'You win')
 
-        twist = input("twist? y/n").lower()
+        twist = input("twist? y/n \n").lower()
 
 
 
