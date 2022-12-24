@@ -126,3 +126,5 @@ dmypy.json
 .idea/
 
 *.bkp
+
+*.dtmp
