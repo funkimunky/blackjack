@@ -16,77 +16,22 @@ def deal_card(hand: list):
     return hand.append(random.choice(cards))
 
 
-def get_score(hand):
-    score = {'softscore':'','hardscore':''}
-    if(11 in hand):
-        score['softscore'] = get_soft_score(hand)
-        score['hardscore'] = get_hard_score(hand)
-    else:
-        score['hardscore'] = sum(hand)
-
-    return score
 
 
-def check_hand(hand):
-    params = {'isBust': False, 'isBlackjack': False}
-    if check_bust(hand):
-        params['isBust'] = True
-        return params
-
-    if check_blackjack(hand):
-        params['isBlackjack'] = True
-        return params
-
-    return params
 
 
-def check_bust(hand):
-    soft_score = 0
-
-    if 11 in hand:
-        soft_score = get_soft_score(hand)
-
-    hard_score = get_hard_score(hand)
-
-    if soft_score > 21 or hard_score > 21:
-        return True
-
-    return False
 
 
-def check_blackjack(hand):
-    soft_score = 0
-
-    if 11 in hand:
-        soft_score = get_soft_score(hand)
-
-    hard_score = get_hard_score(hand)
-
-    if soft_score == 21 or hard_score == 21:
-        return True
-
-    return False
-    return
 
 
-def get_hard_score(hand):
-    return sum(hand)
 
 
-def get_soft_score(hand):
-    soft_hand = [x if x != 11 else 1 for x in hand]
-    return sum(soft_hand)
 
 
-def clean_hand(hand):
-    cleaned_hand = [x for x in hand if x != '*']
-    return cleaned_hand
 
 
-def print_hand_info(hand, name):
-    cleaned_hand = clean_hand(hand)
-    print(f'{name}\'s hand \n{hand}\nscore:{get_score(cleaned_hand)}')
-    return
+
+
 
 
 def start_game():
