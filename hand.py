@@ -9,18 +9,16 @@ class Hand:
         return
 
 
-    def get_score(self):
-        # score = {'softscore': '', 'hardscore': ''}
-        # if (11 in self._cards):
-        #     score['softscore'] = self.get_soft_score()
-        #     score['hardscore'] = get_hard_score()
-        # else:
-        #     score['hardscore'] = sum(hand)
-        #
-        # return score
-        return
+    def check_score(self):
+        if (11 in self._cards):
+            score['softscore'] = self.get_soft_score()
+            score['hardscore'] = get_hard_score()
+        else:
+            score['hardscore'] = sum(hand)
 
-    def check_bust(hand):
+        return score
+
+    def check_bust(self):
         # soft_score = 0
         #
         # if 11 in hand:
@@ -34,23 +32,23 @@ class Hand:
         # return False
         return
 
-    def check_blackjack(hand):
-        # soft_score = 0
-        #
-        # if 11 in hand:
-        #     soft_score = get_soft_score(hand)
-        #
-        # hard_score = get_hard_score(hand)
-        #
-        # if soft_score == 21 or hard_score == 21:
-        #     return True
-        #
-        # return False
-        return
+
+    def check_blackjack(self):
+        soft_score = 0
+
+        if 11 in hand:
+            soft_score = get_soft_score(hand)
+
+        hard_score = get_hard_score(hand)
+
+        if soft_score == 21 or hard_score == 21:
+            return True
+
+        return False
 
 
 
-    def clean_hand(hand):
+    def clean_hand(self):
         # cleaned_hand = [x for x in hand if x != '*']
         # return cleaned_hand
         return
