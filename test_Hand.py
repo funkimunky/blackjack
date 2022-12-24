@@ -40,10 +40,21 @@ class TestScore(TestHand):
         self.hand.hard_score = 4
         self.assertEqual(self.hand.hard_score, 4)
 
-    def test_check_blackjack(self):
+    def test_check_hard_blackjack(self):
         self.hand.add_card(10)
         self.hand.add_card(11)
         self.assertTrue(self.hand.check_blackjack())
+
+    def test_check_soft_blackjack(self):
+        self.hand.add_card(11)
+        self.hand.add_card(10)
+        self.hand.add_card(10)
+        self.assertTrue(self.hand.check_blackjack())
+
+    def test_check_not_blackjack(self):
+        self.hand.add_card(10)
+        self.hand.add_card(10)
+        self.assertFalse(self.hand.check_blackjack())
 
     def test_clean_hand(self):
         self.fail()
