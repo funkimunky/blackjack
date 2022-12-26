@@ -43,7 +43,6 @@ class Hand:
         # return False
         return
 
-    def print_hand_info(hand, name):
-        # cleaned_hand = clean_hand(hand)
-        # print(f'{name}\'s hand \n{hand}\nscore:{get_score(cleaned_hand)}')
+    def print_hand_info(self, name):
+        print(f'{name}\'s hand \n{self.cards}\nscore:{self.hard_score}: {self}')
         return

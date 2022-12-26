@@ -57,7 +57,10 @@ class TestScore(TestHand):
         self.assertFalse(self.hand.check_blackjack())
 
     def test_clean_hand(self):
-        self.fail()
+        self.hand.add_card('*')
+        self.hand.add_card(1)
+        cleaned_cards = self.hand.clean_hand()
+        self.assertEqual(cleaned_cards, [1])
 
     def test_print_hand_info(self):
         self.fail()
