@@ -43,6 +43,4 @@ class Hand:
         # return False
         return
 
-    def print_hand_info(self, name):
-        print(f'{name}\'s hand \n{self.cards}\nscore:{self.hard_score}: {self}')
-        return
+

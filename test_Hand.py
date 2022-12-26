@@ -62,5 +62,4 @@ class TestScore(TestHand):
         cleaned_cards = self.hand.clean_hand()
         self.assertEqual(cleaned_cards, [1])
 
-    def test_print_hand_info(self):
-        self.fail()
+

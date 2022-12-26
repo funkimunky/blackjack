@@ -1,6 +1,6 @@
 from player_super import PlayerSuper
 
-
-class Player(PlayerSuper):
+class Dealer(PlayerSuper):
     def __init__(self, name: str, hand: list):
-        super().__init__(name, hand)
+        self.name = name
+        self.hand = hand
