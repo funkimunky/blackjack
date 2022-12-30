@@ -10,29 +10,9 @@ dealer_stand = 17
 # cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 cards = [11, 10]
 
-
 def deal_card(hand: list):
     global cards
     return hand.append(random.choice(cards))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 def start_game():
     global player_hand, dealer_hand, player_score, dealer_score

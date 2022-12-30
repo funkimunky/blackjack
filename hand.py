@@ -30,17 +30,6 @@ class Hand:
         return cleaned_cards
 
     def check_bust(self):
-        # soft_score = 0
-        #
-        # if 11 in hand:
-        #     soft_score = get_soft_score(hand)
-        #
-        # hard_score = get_hard_score(hand)
-        #
-        # if soft_score > 21 or hard_score > 21:
-        #     return True
-        #
-        # return False
         return
 
 
