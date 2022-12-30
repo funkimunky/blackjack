@@ -1,4 +1,8 @@
+import random
+
 from player_super import PlayerSuper
+from dealer import Dealer
+from hand import Hand
 from art import logo
 
 
@@ -8,15 +12,19 @@ class Game:
         self.dealer = []
         self.play_again = True
         self.logo = logo
+        self.card_possibles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
         return
 
     def add_dealer(self, dealer: PlayerSuper):
+        self.dealer.append(dealer)
         return
 
     def add_player(self, player: PlayerSuper):
+        self.player.append(player)
         return
 
-    def deal_card(self, player:PlayerSuper):
+    def deal_card(self, player: PlayerSuper):
+        player.hand.add_card(random.choice(self.card_possibles))
         return
 
     def choose_hit_or_stand(self, player: PlayerSuper):
