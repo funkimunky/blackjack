@@ -52,4 +52,15 @@ class TestSetupGame(TestGame):
         self.assertEqual(player.hand.cards[0], 10)
 
 
+    #https://deniscapeto.com/2021/03/06/how-to-test-a-while-true-in-python/
+    @patch('sys.stdout', new_callable=StringIO)
+    @patch('builtins.input', return_value='notright')
+    def test_hit_stand(self, mock_input, mock_stdout):
+        player = self.game.player[0]
+        game = self.game
+        self.game.choose_hit_or_stand(player)
+        self.assertEqual('invalid input./n', mock_stdout.getvalue())
+
+
+
 

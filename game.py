@@ -28,6 +28,20 @@ class Game:
         return
 
     def choose_hit_or_stand(self, player: PlayerSuper):
+        while True:  # Never ending loop
+            try:
+                decision = str(input(f'Hit (h) or Stand (s)?/n'))
+                if decision.lower() == 'h' or decision.lower() == 's':
+                    break
+                else:
+                    raise TypeError
+            except TypeError:
+                print("invalid input./n")
+                continue  # This causes it to continue
+            except EOFError:
+                print("Please input something....")
+                continue  # This causes it to continue
+
         return
 
     def display_start(self):
