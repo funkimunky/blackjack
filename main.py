@@ -1,30 +1,9 @@
-import random
-
-import art
-
-player_score = 0
-dealer_score = 0
-player_hand = []
-dealer_hand = []
-dealer_stand = 17
-# cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-cards = [11, 10]
-
-def deal_card(hand: list):
-    global cards
-    return hand.append(random.choice(cards))
-
+from hand import Hand
+from game import Game
+from player import Player
+from dealer import Dealer
 def start_game():
-    global player_hand, dealer_hand, player_score, dealer_score
-    print(art.logo)
-    deal_card(player_hand)
-    deal_card(player_hand)
-    dealer_hand.append('*')
-    deal_card(dealer_hand)
-    print_hand_info(dealer_hand, 'dealer')
-    print_hand_info(player_hand, 'player')
-
-
+    game = Game()
     return
 
 def play_loop(player):
