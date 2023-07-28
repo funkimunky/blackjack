@@ -45,6 +45,7 @@ class Game:
         return
 
     def display_start(self):
+        print(self.logo)
         return
 
     def display_end(self):
