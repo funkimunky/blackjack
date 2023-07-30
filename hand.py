@@ -3,6 +3,7 @@ class Hand:
         self.soft_score = soft_score
         self.hard_score = hard_score
         self.cards = cards
+        return
 
     def add_card(self, card: int):
         self.cards.append(card)
@@ -19,11 +20,13 @@ class Hand:
     def set_hard_score(self):
         cleaned_cards = self.clean_hand()
         self.hard_score = sum(cleaned_cards)
+        return
 
     def set_soft_score(self):
         cleaned_cards = self.clean_hand()
         soft_hand = [x if x != 11 else 1 for x in cleaned_cards]
         self.soft_score = sum(soft_hand)
+        return
 
     def check_blackjack(self):
         if self.soft_score == 21 or self.hard_score == 21:
