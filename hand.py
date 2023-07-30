@@ -10,6 +10,12 @@ class Hand:
         self.set_soft_score()
         return
 
+    def add_hidden_card(self):
+        self.cards.append('*')
+        self.set_hard_score()
+        self.set_soft_score()
+        return
+
     def set_hard_score(self):
         cleaned_cards = self.clean_hand()
         self.hard_score = sum(cleaned_cards)

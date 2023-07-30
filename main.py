@@ -8,10 +8,11 @@ def start_game():
     game.display_start()
     dealer = game.add_dealer("John")
     david = game.add_player("David")
-    # bob = game.add_player("Bob")
-    # bob = game.get_player("Bob")
-    # bob.name = "test"
     game.deal_card(david)
+    game.deal_card(dealer, True)
+    game.deal_card(dealer)
+    game.deal_card(david)
+    david.check_hand()
     return
 
 # def play_loop(player):

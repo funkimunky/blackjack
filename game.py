@@ -32,8 +32,17 @@ class Game:
                 return player
         return None
 
-    def deal_card(self, player: PlayerSuper):
-        player.hand.add_card(random.choice(self.card_possibles))
+    def get_dealer(self, name):
+        for dealer in self.dealers:
+            if dealer.name == name:
+                return dealer
+        return None
+
+    def deal_card(self, player: PlayerSuper, hidden=False):
+        if hidden:
+            player.hand.add_hidden_card()
+        else:
+            player.hand.add_card(random.choice(self.card_possibles))
         return
 
     def choose_hit_or_stand(self, player: PlayerSuper):
