@@ -1,6 +1,8 @@
 from player_super import PlayerSuper
+from hand import Hand
 
 
 class Player(PlayerSuper):
-    def __init__(self, name: str, hand: list):
+    def __init__(self, name: str):
+        hand = Hand(0, 0, [])
         super().__init__(name, hand)

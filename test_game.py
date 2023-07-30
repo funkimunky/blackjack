@@ -21,10 +21,10 @@ class TestInit(TestGame):
         self.assertIsInstance(self.game, Game)
 
     def test_player_type(self):
-        self.assertIsInstance(self.game.player, list)
+        self.assertIsInstance(self.game.players, list)
 
     def test_dealer_type(self):
-        self.assertIsInstance(self.game.player, list)
+        self.assertIsInstance(self.game.players, list)
 
     def test_play_again_type(self):
         self.assertIsInstance(self.game.play_again, bool)
@@ -35,19 +35,19 @@ class TestInit(TestGame):
 
 class TestSetupGame(TestGame):
     def test_add_dealer_type(self):
-        for dealer in self.game.dealer:
+        for dealer in self.game.dealers:
             self.assertIsInstance(dealer, Dealer)
 
     def test_dealer_name(self):
-        dealer = self.game.dealer[0]
+        dealer = self.game.dealers[0]
         self.assertEqual(dealer.name, "Dave")
 
     def test_add_player_type(self):
-        for player in self.game.player:
+        for player in self.game.players:
             self.assertIsInstance(player, Player)
 
     def test_deal_card(self):
-        player = self.game.player[0]
+        player = self.game.players[0]
         self.game.deal_card(player)
         self.assertEqual(player.hand.cards[0], 10)
 
@@ -56,7 +56,7 @@ class TestSetupGame(TestGame):
     @patch('sys.stdout', new_callable=StringIO)
     @patch('builtins.input', return_value='notright')
     def test_hit_stand(self, mock_input, mock_stdout):
-        player = self.game.player[0]
+        player = self.game.players[0]
         game = self.game
         self.game.choose_hit_or_stand(player)
         self.assertEqual('invalid input./n', mock_stdout.getvalue())

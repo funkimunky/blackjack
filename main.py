@@ -2,12 +2,16 @@ from hand import Hand
 from game import Game
 from player import Player
 from dealer import Dealer
+from hand import Hand
 def start_game():
     game = Game()
     game.display_start()
-    player1 = Player()
-    dealer = Dealer()
-    game.add_player(player1)
+    dealer = game.add_dealer("John")
+    david = game.add_player("David")
+    # bob = game.add_player("Bob")
+    # bob = game.get_player("Bob")
+    # bob.name = "test"
+    game.deal_card(david)
     return
 
 # def play_loop(player):
