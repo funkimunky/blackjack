@@ -14,4 +14,6 @@ class PlayerSuper:
         return
 
     def check_hand(self):
+        self.hand.check_blackjack()
+        self.hand.check_bust()
         return
