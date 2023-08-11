@@ -10,9 +10,9 @@ from game import Game
 class TestGame(TestCase):
     def setUp(self):
         self.game = Game()
-        self.game.add_dealer(Dealer('Dave', Hand(0, 0, [])))
-        self.game.add_player(Player('Bob', Hand(0, 0, [])))
-        self.game.add_player(Player('Alice', Hand(0, 0, [])))
+        self.game.add_dealer("John")
+        self.game.add_player("Dave")
+        self.game.add_player("Alice")
         self.game.card_possibles = [10]
 
 
@@ -40,17 +40,39 @@ class TestSetupGame(TestGame):
 
     def test_dealer_name(self):
         dealer = self.game.dealers[0]
-        self.assertEqual(dealer.name, "Dave")
+        self.assertEqual(dealer.name, "John")
 
     def test_add_player_type(self):
         for player in self.game.players:
             self.assertIsInstance(player, Player)
 
-    def test_deal_card(self):
+    def test_player1_name(self):
+        player = self.game.players[0]
+        self.assertEqual(player.name, "Dave")
+
+    def test_player2_name(self):
+        player = self.game.players[1]
+        self.assertEqual(player.name, "Alice")
+
+    def test_get_player1ByName(self):
+        player = self.game.get_player("Dave")
+        self.assertEqual(player.name, "Dave")
+
+    def test_get_player2ByName(self):
+        player = self.game.get_player("Alice")
+        self.assertEqual(player.name, "Alice")
+
+    def test_deal_cardsDealer(self):
+        dealer = self.game.dealers[0]
+        self.game.deal_card(dealer, True)
+        self.game.deal_card(dealer)
+        self.assertEqual(dealer.hand.cards[0], "*")
+        self.assertEqual(dealer.hand.cards[1], 10)
+
+    def test_deal_cardsPlayer1(self):
         player = self.game.players[0]
         self.game.deal_card(player)
         self.assertEqual(player.hand.cards[0], 10)
-
 
     #https://deniscapeto.com/2021/03/06/how-to-test-a-while-true-in-python/
     @patch('sys.stdout', new_callable=StringIO)

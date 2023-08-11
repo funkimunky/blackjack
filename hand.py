@@ -31,14 +31,17 @@ class Hand:
     def check_blackjack(self):
         if self.soft_score == 21 or self.hard_score == 21:
             return True
+        return False
 
+    def check_bust(self):
+        if self.soft_score > 21 or self.hard_score > 21:
+            return True
         return False
 
     def clean_hand(self):
         cleaned_cards = [x for x in self.cards if x != '*']
         return cleaned_cards
 
-    def check_bust(self):
-        return
+
 
 
